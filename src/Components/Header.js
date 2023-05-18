@@ -159,8 +159,7 @@ const searchData = async(e)=>{
         
       
 
-          <div className="ml-6  border-b flex md:border-none md:justify-end list-reset m-0 w-full overflow-auto hover:overflow-scroll md:w-auto">
-        
+              <div className="flex items-center space-x-4 overflow-y-auto md:max-w-lg xl:max-w-5xl 2xl:max-w-7xl lg:max-w-3xl whitespace-nowrap">
             <NavLink className="cursor-pointer rounded-sm py-1 px-2 text-sm font-medium hover:bg-gray-100"  to="/">
               All
             </NavLink>

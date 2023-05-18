@@ -61,6 +61,14 @@ const Navbar = () => {
                   Add Items
                 </NavLink>
               </li>
+              <li className="border-t md:border-none pr-2 pl-2">
+                <NavLink
+                  to="/dashboard"
+                  className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+                >
+                  Dashboard
+                </NavLink>
+              </li>
             </>
           ) : (
             ""

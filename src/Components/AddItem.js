@@ -38,7 +38,7 @@ const AddItem = () => {
   };
 
   const formData = new FormData();
-  const addProduct = async (e) => {
+const addProduct = async (e) => {
     e.preventDefault();
 
     const { pname, pprice, pcategory, pdescription } = item;
@@ -53,6 +53,7 @@ const AddItem = () => {
         draggable: true,
         progress: undefined,
       });
+      return;
     }else{
       
       formData.append("pname", pname);
@@ -62,9 +63,11 @@ const AddItem = () => {
       formData.append("pimage", image);
       // console.log("dfd",formData.get('pimage'));
       setLoading(true);
+      //${process.env.REACT_APP_BACKENDURL}
       const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/additems`, {
         method: "POST",
         body: formData,
+        credentials: 'include'
       });
   
       const itemData = await res.json();
@@ -80,6 +83,16 @@ const AddItem = () => {
           draggable: true,
           progress: undefined,
         });
+        setItem({
+          pname: "",
+          pprice: "",
+          pdescription: "",
+        });
+        let op = document.getElementById("pcategory");
+        op.options[0].selected = true;
+        setImage(null);
+        setPreviewImage(product);
+        return;
       } else {
         toast.error("Something went wrong,item not added!", {
           position: "top-center",
@@ -90,18 +103,9 @@ const AddItem = () => {
           draggable: true,
           progress: undefined,
         });
+        return;
       }
     }
-
-    setItem({
-      pname: "",
-      pprice: "",
-      pdescription: "",
-    });
-    let op = document.getElementById("pcategory");
-    op.options[0].selected = true;
-    setImage(null);
-    setPreviewImage(product);
   };
   
   if(user && user.customer==="buyer"){

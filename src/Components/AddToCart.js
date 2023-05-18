@@ -4,7 +4,7 @@ import { UserContext } from "../Context/UserContext";
 
 const AddToCart = (props) => {
   const { user, setUser } = useContext(UserContext);
-
+  // console.log("Userid in addtocart : ",user._id);
   const [quantity, setQuantity] = useState(1);
 
   const addToCart = async () => {
@@ -15,10 +15,11 @@ const AddToCart = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ itemId, quantity }),
+      body: JSON.stringify({ owner: user._id,itemId, quantity }),
+      credentials:"include",
     });
 
-    const data = res.json();
+    const data =await  res.json();
 
     console.log(data);
     if (data && res.status === 201) {

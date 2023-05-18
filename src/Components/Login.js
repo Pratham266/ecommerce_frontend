@@ -21,8 +21,7 @@ const Login = () => {
     setLoading(true);
     e.preventDefault();
     const { email, password } = user;
-    //${process.env.REACT_APP_BACKENDURL}
-    const res = await fetch(`/login`, {
+    const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,6 +30,7 @@ const Login = () => {
         email,
         password,
       }),
+      credentials: 'include',
     });
 
     const data = await res.json();
@@ -48,8 +48,8 @@ const Login = () => {
 
       setLoading(false);
     } else {
-      setUser(data.user);
-    
+      setUser(data);
+      console.log(data);
       toast.success("You are successfully logged in", {
         position: "top-center",
         autoClose: 5000,

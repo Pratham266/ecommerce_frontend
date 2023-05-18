@@ -16,6 +16,7 @@ import SearchedProduct from "./Components/SearchedProduct";
 import Signup from "./Components/Signup";
 import { ToastContainer } from "react-toastify";
 import { UserContext } from "./Context/UserContext";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -36,6 +37,7 @@ function App() {
       }else if (res.ok){
         const data = await res.json();
         setUser(data);
+        console.log("in context : ",data);
       } else {
         throw new Error(res.statusText);
       }
@@ -60,7 +62,8 @@ function App() {
             <Route exact path="/displayitem" element={<DisplayItem />} />
             <Route exact path="/searchitem" element={<SearchedProduct />} />
             <Route exact path="/additems" element={<AddItem/>}/>
-        <Route exact path="/mycart" element={<MyCart/>}/>
+            <Route exact path="/mycart" element={<MyCart/>}/>
+            <Route exact path="/dashboard" element={<Dashboard/>}/>
   
             <Route exact path="*" element={<PageNotFound />} />
           </Routes>

@@ -36,6 +36,7 @@ const Home = () => {
     const callUserData = async()=>{
       try{  
         setLoading(true);
+        //console.log("path : ",`${process.env.REACT_APP_BACKENDURL}/about`)
         const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/about`,{
           method:"GET",
           headers:{
@@ -113,7 +114,7 @@ const Home = () => {
                             </span>
                           </p>
                           <p className="text-lg font-bold text-blue-500">
-                            {itemsData[key].price}
+                            {itemsData[key].price} ₹
                           </p>
 
                           <div className="mt-3 flex items-end justify-between">

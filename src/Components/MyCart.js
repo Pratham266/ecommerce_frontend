@@ -15,11 +15,12 @@ const MyCart = () => {
     setLoading(true)
     //${process.env.REACT_APP_BACKENDURL}
     try {
-      const res = await fetch(`/cart`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/cart`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials:"include"
       });
       const data = await res.json();
       setLoading(false)
@@ -38,14 +39,16 @@ const MyCart = () => {
 
   
   const deletItem = async (itemId) => {
-    // console.log("ID:",itemId);
+    console.log("ID:",itemId);
     setLoading(true)
+    // ${process.env.REACT_APP_BACKENDURL}
     try {
       const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/cartdelete?itemId=${itemId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials:"include"
       });
       setLoading(false)
       if (res.status === 200) {
@@ -76,7 +79,7 @@ const MyCart = () => {
 
       }
     } catch (error) {
-      toast.error("Something went wrong!", {
+      toast.error("Something went wrong !", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -91,12 +94,14 @@ const MyCart = () => {
   const orderMailSend = async () => {
     setLoading(true)
     const bill = cartData.bill;
+    // ${process.env.REACT_APP_BACKENDURL}
     const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/mail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ items, bill }),
+      credentials:"include"
     });
     const data = await res.json();
     

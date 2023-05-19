@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 import product from "../Images/product.jpg";
-import { Circles } from "react-loader-spinner";
+
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 const AddItem = () => {
   const [image, setImage] = useState("");
@@ -31,6 +32,7 @@ const AddItem = () => {
     setImage(e.target.files[0]);
     changePreviewImage(e);
   };
+
   const changePreviewImage = (event) => {
     if (event.target.files && event.target.files[0]) {
       setPreviewImage(URL.createObjectURL(event.target.files[0]));
@@ -49,7 +51,7 @@ const addProduct = async (e) => {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -79,7 +81,7 @@ const addProduct = async (e) => {
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
         });
@@ -99,7 +101,7 @@ const addProduct = async (e) => {
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
         });
@@ -114,7 +116,7 @@ const addProduct = async (e) => {
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
@@ -139,7 +141,7 @@ const addProduct = async (e) => {
                 </div>
               </div>
             </div>
-            <div className="mt-5 md:mt-0 md:col-span-2">
+            <div className="mt-5   md:mt-0 md:col-span-2">
               <form method="POST">
                 <div className="shadow overflow-hidden sm:rounded-md m-4">
                   <div className="px-4 py-5 bg-black sm:p-6 ">
@@ -259,31 +261,11 @@ const addProduct = async (e) => {
     );
   }else if(loading){
     return(<>
-      <div className="h-screen flex items-center justify-center">
-        <Circles
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperclassName="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
-      </div>
+   <Loader/>
     </>)
   }else{
     return(<>
-      <div className="h-screen flex items-center justify-center">
-        <Circles
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperclassName="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
-      </div>
+      <Loader/>
     </>)
   }
    

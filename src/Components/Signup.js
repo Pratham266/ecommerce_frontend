@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { Circles } from "react-loader-spinner";
 import {toast } from "react-toastify";
+import Loader from './Loader';
 
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// toast.configure()
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -49,7 +46,7 @@ const Signup = () => {
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
         });
@@ -61,7 +58,7 @@ const Signup = () => {
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
         });
@@ -72,17 +69,7 @@ const Signup = () => {
   }
   if(loading){
     return(<>
-    <div className="h-screen flex items-center justify-center">
-        <Circles
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperclassName="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
-      </div>
+  <Loader/>
     </>)
   }else{
     return (

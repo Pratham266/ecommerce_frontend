@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 import AddToCart from "./AddToCart";
 import Header from "./Header";
-import { Circles } from "react-loader-spinner";
+
+import Loader from "./Loader";
 
 const Home = () => {
     const [itemsData, setAllItem] = useState({});
@@ -68,17 +69,7 @@ const Home = () => {
 
   if (loading) {
     return <>
-       <div className="h-screen flex items-center justify-center">
-        <Circles
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperclassName="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
-      </div>
+  <Loader/>
     </>;
   } else {
     return (

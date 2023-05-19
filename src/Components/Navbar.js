@@ -37,7 +37,7 @@ const Navbar = () => {
           <li className="border-t md:border-none pr-2 pl-2">
             <NavLink
               to="/"
-              className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+              className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
             >
               Home
             </NavLink>
@@ -46,7 +46,7 @@ const Navbar = () => {
           <li className="border-t md:border-none pr-2 pl-2">
             <NavLink
               to="/about"
-              className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+              className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
             >
               About Us
             </NavLink>
@@ -56,7 +56,7 @@ const Navbar = () => {
               <li className="border-t md:border-none pr-2 pl-2">
                 <NavLink
                   to="/additems"
-                  className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+                  className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
                 >
                   Add Items
                 </NavLink>
@@ -64,7 +64,7 @@ const Navbar = () => {
               <li className="border-t md:border-none pr-2 pl-2">
                 <NavLink
                   to="/dashboard"
-                  className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+                  className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
                 >
                   Dashboard
                 </NavLink>
@@ -78,7 +78,7 @@ const Navbar = () => {
               <li className="border-t md:border-none pr-2 pl-2 pr-2 pl-2 ">
                 <NavLink
                   to="/logout"
-                  className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+                  className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
                 >
                   Logout
                 </NavLink>
@@ -89,7 +89,7 @@ const Navbar = () => {
               <li className="border-t md:border-none pr-2 pl-2">
                 <NavLink
                   to="/login"
-                  className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+                  className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
                 >
                   Login
                 </NavLink>
@@ -97,7 +97,7 @@ const Navbar = () => {
               <li className="border-t md:border-none pr-2 pl-2">
                 <NavLink
                   to="/signup"
-                  className="block hover:underline decoration-teal-900 hover:text-teal-400 hover:font-bold md:inline-block text-white px-4 py-3 "
+                  className="block hover:underline decoration-teal-900 hover:text-teal-400  md:inline-block text-white px-4 py-3 "
                 >
                   Signup
                 </NavLink>

@@ -1,13 +1,17 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { UserContext } from "../Context/UserContext";
+import Loader from "./Loader";
 
 const AddToCart = (props) => {
   const { user, setUser } = useContext(UserContext);
+  const [loading,setLoading] = useState(false);
+
   // console.log("Userid in addtocart : ",user._id);
   const [quantity, setQuantity] = useState(1);
 
   const addToCart = async () => {
+    //setLoading(true);
     const itemId = props.itemId;
 
     const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/addcart`, {
@@ -25,28 +29,33 @@ const AddToCart = (props) => {
     if (data && res.status === 201) {
       toast.success("Item added to cart", {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
-  
+      setLoading(false);
+
     } else if (data.status === undefined) {
       toast.error("Item not added to cart", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
-     
+      setLoading(false);
     }
   };
-
+if(loading){
+  return(<>
+  
+ <Loader/> </>)
+}else{
   return (
     <>
       {user && user.customer === "buyer" ? (
@@ -85,6 +94,8 @@ const AddToCart = (props) => {
       )}
     </>
   );
+}
+ 
 };
 
 export default AddToCart;

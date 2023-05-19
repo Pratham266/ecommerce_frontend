@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ecommerce from '../Images/ecommerce.jpg';
-import { Circles } from "react-loader-spinner";
+import Loader from './Loader';
+
 
 const About = () => {
   const navigate = useNavigate();
@@ -40,17 +41,7 @@ const About = () => {
   },[]);
   if(loading){
       return(<>
- <div className="h-screen flex items-center justify-center">
-        <Circles
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperclassName="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
-      </div>
+<Loader/>
       </>)
   }else{
     return (

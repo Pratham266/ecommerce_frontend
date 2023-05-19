@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
-import { Circles } from "react-loader-spinner";
+import Loader from './Loader';
+
 import {toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -41,7 +42,7 @@ const Login = () => {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -55,7 +56,7 @@ const Login = () => {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -68,17 +69,7 @@ const Login = () => {
   if (loading) {
     return (
       <>
-        <div className="h-screen flex items-center justify-center">
-          <Circles
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="vortex-loading"
-            wrapperStyle={{}}
-            wrapperclassName="vortex-wrapper"
-            colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-          />
-        </div>
+     <Loader/>
       </>
     );
   } else {

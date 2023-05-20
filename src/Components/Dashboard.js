@@ -34,7 +34,6 @@ if(loading){
 }else{
     return (
     <>
-
     <div className="max-w-2xl mx-auto">
     <p className="mt-5 text-3xl text-center m-4">Dashboard</p>
     {

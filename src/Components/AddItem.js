@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 import product from "../Images/product.jpg";
-
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";

@@ -51,6 +51,7 @@ const AddToCart = (props) => {
       setLoading(false);
     }
   };
+  
 if(loading){
   return(<>
   

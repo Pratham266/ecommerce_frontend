@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../Context/UserContext';
-import { Circles } from "react-loader-spinner";
 import {toast } from "react-toastify";
+import Loader from './Loader';
 
 const Logout = () => {
     const {setUser} = useContext(UserContext);
@@ -43,17 +43,7 @@ const Logout = () => {
 
   return (
     <>
-    <div className="h-screen flex items-center justify-center">
-        <Circles
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperclassName="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
-      </div>
+        <Loader/>
     </>
   )
 }

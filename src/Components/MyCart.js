@@ -14,6 +14,7 @@ const MyCart = () => {
   const getDetails = async () => {
     setLoading(true)
     //${process.env.REACT_APP_BACKENDURL}
+    console.log("fetch cart ");
     try {
       const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/cart`, {
         method: "GET",
@@ -23,10 +24,33 @@ const MyCart = () => {
         credentials:"include"
       });
       const data = await res.json();
+      console.log("cart data : ",data);
       setLoading(false)
-      setCartData(data);
-      setItems(data.items);
-      if (!res.status === 201) {
+     
+
+      if (res.status === 201) {
+        setLoading(false);
+        setCartData(data);
+        
+        if(data && data.items){
+          setItems(data.items);
+        }
+        else{
+          setItems({});
+        }
+
+      }else if(res.status === 200){
+        toast.warning("Your cart is empty", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        navigate("/");
+      }else{
         setLoading(false)
         throw new Error(res.error);
       }

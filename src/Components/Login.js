@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import {NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 import Loader from './Loader';
 

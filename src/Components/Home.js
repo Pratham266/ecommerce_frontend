@@ -16,6 +16,7 @@ const Home = () => {
       try {
           setLoading(true)
           //http:/localhost:5000/items
+         //console.log(`${process.env.REACT_APP_BACKENDURL}/items`);
         const res = await fetch(`${process.env.REACT_APP_BACKENDURL}/items`, {
           method: "GET",
           headers: {
@@ -23,6 +24,7 @@ const Home = () => {
           },
         });
         const items = await res.json();
+        console.log("items",items);
         setAllItem(items);
         setLoading(false)
         if (!res.status === 200) {
